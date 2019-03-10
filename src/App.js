@@ -1,25 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'; 
+import './hour.css';
+
 
 class App extends Component {
+  
   render() {
+     const milliseconds = 500000;
+
+const hours = `0${new Date(milliseconds).getHours() - 1}`.slice(-2);
+const minutes = `0${new Date(milliseconds).getMinutes()}`.slice(-2);
+const seconds = `0${new Date(milliseconds).getSeconds()}`.slice(-2);
+
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+     
+
+      <div class="flex-container">
+  <div className="title"> {hours}</div>
+ 
+  <div className="title"> {minutes}</div>
+  
+  <div className="title">   {seconds}</div>  
+</div>
+<div class="flex-container">
+  <div className="text"> <p>Hour</p></div>
+  <div className="text"> <p>Minute</p></div>
+  <div className="text">  <p> Second</p></div>  
+</div>
+      
+      
+  
       </div>
     );
   }
